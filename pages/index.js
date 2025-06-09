@@ -1,16 +1,14 @@
-// Version 2 - Application Voyage Gourmetik améliorée
-
-import { useState } from 'react';
+// Version 2 - Application Voyage Gourmetik avec image intégrée import { useState } from 'react';
 
 export default function Home() { const [langue, setLangue] = useState("fr"); const [etape, setEtape] = useState(-1); const [minuteur, setMinuteur] = useState(null);
 
-const recette = { titre: { fr: "Poulet Rôti Méditerranéen", en: "Mediterranean Roasted Chicken", ar: "دجاج مشوي على الطريقة المتوسطية" }, image: "/poulet.jpg", ingredients: { fr: ["1 poulet entier", "4 gousses d'ail", "Jus de 1 citron", "Herbes de Provence", "Huile d'olive", "Sel et poivre"], en: ["1 whole chicken", "4 garlic cloves", "Juice of 1 lemon", "Provence herbs", "Olive oil", "Salt and pepper"], ar: ["دجاجة كاملة", "4 فصوص ثوم", "عصير ليمونة", "أعشاب بروفانس", "زيت الزيتون", "ملح وفلفل"] }, etapes: { fr: [ "Préchauffez le four à 200°C.", "Frottez le poulet avec l'ail, le citron, les herbes, l'huile, le sel et le poivre.", "Placez au four pendant 1h15.", "Laissez reposer 10 minutes avant de servir." ], en: [ "Preheat the oven to 200°C.", "Rub the chicken with garlic, lemon juice, herbs, oil, salt, and pepper.", "Roast in the oven for 1h15.", "Let it rest 10 minutes before serving." ], ar: [ "سخّن الفرن إلى 200 درجة مئوية.", "افرك الدجاج بالثوم والليمون والأعشاب والزيت والملح والفلفل.", "اخبز في الفرن لمدة ساعة و15 دقيقة.", "اتركه يستريح 10 دقائق قبل التقديم." ] } };
+const recette = { titre: { fr: "Poulet Rôti Méditerranéen", en: "Mediterranean Roasted Chicken", ar: "دجاج مشوي على الطريقة المتوسطية" }, image: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wCEAAkGBxISEhUQEhIVFRUVEhUVFhUVFRUVFRUVFRUXFhUVFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGhAQGi0fHR0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIALcBEwMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAAAAgMEBQYBB//EAD4QAAIBAwEFBgMFBAECBQUAAAECEQADBCExEkFRYQVxgZGh8BMiMqGxwdHwFCNSYnKCksLxFSRDkqKy0hYz8RY0c4L/xAAZAQADAQEBAAAAAAAAAAAAAAAAAQIDBAX/xAAiEQEBAQEBAQACAgMAAAAAAAAAAQIRAxIhMQRBIlFhcfD/2gAMAwEAAhEDEQA/AOJ+LVRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB//Z", ingredients: { fr: [ "1 poulet entier", "4 gousses d'ail", "Jus de 1 citron", "Herbes de Provence", "Huile d'olive", "Sel et poivre" ], en: [ "1 whole chicken", "4 garlic cloves", "Juice of 1 lemon", "Provence herbs", "Olive oil", "Salt and pepper" ], ar: [ "دجاجة كاملة", "4 فصوص ثوم", "عصير ليمونة", "أعشاب بروفانس", "زيت الزيتون", "ملح وفلفل" ] }, etapes: { fr: [ "Préchauffez le four à 200°C.", "Frottez le poulet avec l'ail, le citron, les herbes, l'huile, le sel et le poivre.", "Placez au four pendant 1h15.", "Laissez reposer 10 minutes avant de servir." ], en: [ "Preheat the oven to 200°C.", "Rub the chicken with garlic, lemon juice, herbs, oil, salt, and pepper.", "Roast for 1h15.", "Let rest 10 minutes before serving." ], ar: [ "سخّن الفرن إلى 200 درجة.", "افرك الدجاج بالثوم والليمون والأعشاب والزيت والملح والفلفل.", "اطبخه لمدة ساعة و15 دقيقة.", "اتركه يرتاح 10 دقائق قبل التقديم." ] } };
 
-const handleStart = () => { setEtape(0); setMinuteur(60); // Exemple : 60 secondes };
+const handleStart = () => { setEtape(0); setMinuteur(60); };
 
 return ( <main style={{ padding: 20, fontFamily: 'sans-serif' }}> <h1>{recette.titre[langue]}</h1> <select value={langue} onChange={(e) => setLangue(e.target.value)}> <option value="fr">🇫🇷 Français</option> <option value="en">🇬🇧 English</option> <option value="ar">🇲🇦 عربي</option> </select>
 
-<img src={recette.image} alt="plat" style={{ maxWidth: "100%", margin: "20px 0", borderRadius: 12 }} />
+<img src={recette.image} alt="plat" style={{ maxWidth: '100%', margin: '20px 0', borderRadius: 12 }} />
 
   <h2>{langue === "fr" ? "Ingrédients" : langue === "en" ? "Ingredients" : "المكونات"}</h2>
   <ul>
@@ -40,4 +38,6 @@ return ( <main style={{ padding: 20, fontFamily: 'sans-serif' }}> <h1>{recette.t
 </main>
 
 ); }
+
+
 
